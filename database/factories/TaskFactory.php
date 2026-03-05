@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Scrumboard;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Task>
@@ -19,7 +20,8 @@ class TaskFactory extends Factory
         return [
             'title' => fake()->realText(20),
             'priority' => fake()->numberBetween(0, 5),
-            'description' => fake()->realText(500)
+            'description' => fake()->realText(500),
+            'scrumboard_id' => Scrumboard::inRandomOrder()->first()->id,
         ];
     }
 }

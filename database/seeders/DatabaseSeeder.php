@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            ScrumboardSeeder::class,
             TaskSeeder::class,
         ]);
     }
