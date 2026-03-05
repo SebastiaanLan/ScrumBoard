@@ -4,10 +4,12 @@
     <ul>
         @foreach($tasks as $task)
             <li>
-                <x-card href="/tasks/{{ $task['id'] }}" :highlight="$task['urgency'] <=     3">
-                    <h3>{{ $task['name'] }}</h3>
+                <x-card href="{{ route('tasks.show', $task->id) }}" :highlight="$task->priority <=     3">
+                    <h3>{{ $task->title }}</h3>
                 </x-card>
             </li>
         @endforeach
     </ul>
+
+    {{ $tasks->links('pagination::tailwind') }}
 </x-layout>

@@ -9,8 +9,8 @@
     <header>
         <nav>
             <h1>Scrumboard</h1>
-            <a href="/tasks">Show Tasks</a>
-            <a href="/tasks/create">Create Task</a>
+            <a href="{{ route('tasks.index') }}">Show Tasks</a>
+            <a href="{{ route('tasks.create') }}">Create Task</a>
         </nav>
     </header>
 
