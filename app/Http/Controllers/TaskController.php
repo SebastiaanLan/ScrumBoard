@@ -8,13 +8,13 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     public function index() {
-        $tasks = Task::orderBy('created_at', 'desc')->paginate(10);
+        $tasks = Task::with('scrumboard')->orderBy('created_at', 'desc')->paginate(10);
 
         return view('tasks.index', ['tasks' => $tasks]);
     }
 
     public function show($id) {
-        $task = Task::findOrFail($id);
+        $task = Task::with('scrumboard')->findOrFail($id);
 
         return view('tasks.task', ['task' => $task]);
     }

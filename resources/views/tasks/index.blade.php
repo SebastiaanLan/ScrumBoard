@@ -5,7 +5,10 @@
         @foreach($tasks as $task)
             <li>
                 <x-card href="{{ route('tasks.show', $task->id) }}" :highlight="$task->priority <=     3">
-                    <h3>{{ $task->title }}</h3>
+                    <div>
+                        <h3>{{ $task->title }}</h3>
+                        <p>{{ $task->scrumboard->name }}</p>
+                    </div>
                 </x-card>
             </li>
         @endforeach
