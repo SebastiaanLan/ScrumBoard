@@ -1,25 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', function(){
-    $tasks = [
-        ['name' => 'db maken', 'urgency' => 2, 'id' => 0],
-        ['name' => 'programmeren', 'urgency' => 1, 'id' => 1],
-        ['name' => 'documenteren', 'urgency' => 3, 'id' => 2],
-    ];
-
-    return view('tasks.index', ['tasks' => $tasks, 'greeting' => 'hello']);
-});
-
-Route::get('/tasks/create', function () {
-    return view('tasks.create');
-});
-
-Route::get('/tasks/{id}', function($id) {
-    return view('tasks.task', ['id' => $id]);
-});
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
