@@ -6,6 +6,12 @@
     @vite('resources/css/app.css')
 </head>
 <body> 
+    @if (session('succes'))
+        <div id="flash" class="p-4 text-center bg-green-50 text-green-500 font-bold">
+            {{ session('succes') }}
+        </div>
+    @endif
+
     <header>
         <nav>
             <h1>Scrumboard</h1>

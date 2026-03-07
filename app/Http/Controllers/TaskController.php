@@ -14,8 +14,8 @@ class TaskController extends Controller
         return view('tasks.index', ['tasks' => $tasks]);
     }
 
-    public function show($id) {
-        $task = Task::with('scrumboard')->findOrFail($id);
+    public function show(Task $task) {
+        $task->load('scrumboard');
 
         return view('tasks.task', ['task' => $task]);
     }
@@ -36,6 +36,12 @@ class TaskController extends Controller
 
         Task::create($validated);
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('succes', 'Task Created');
+    }
+
+    public function destroy(Task $task) {
+        $task->delete();
+
+        return redirect()->route('tasks.index')->with('succes', 'Task Deleted');
     }
 }

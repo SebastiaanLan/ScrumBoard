@@ -13,4 +13,11 @@
         <p><strong>Description:</strong></p>
         <p>{{ $task->scrumboard->description }}</p>
     </div>
+
+    <form action="{{ route('tasks.destroy', $task) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <button type="submit" class="btn my-4">Delete Task</button>
+    </form>
 </x-layout>
