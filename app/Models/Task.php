@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $fillable = ['title', 'priority', 'description', 'scrumboard_id'];
+    protected $fillable = ['title', 'priority', 'description', 'status', 'scrumboard_id'];
 
     /** @use HasFactory<\Database\Factories\TaskFactory> */
     use HasFactory;

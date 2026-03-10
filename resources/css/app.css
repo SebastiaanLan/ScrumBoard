@@ -49,7 +49,7 @@ input, select, textarea {
 
 /* custom classes */
 .container {
-  @apply max-w-screen-lg mx-auto px-12 py-8;
+  @apply max-w-screen-lg mx-auto px-12;
 }
 .card {
   @apply bg-white rounded border border-gray-200 px-3 py-3 my-2 flex justify-between items-center;
