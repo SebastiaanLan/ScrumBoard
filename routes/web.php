@@ -15,4 +15,5 @@ Route::get('/{scrumboard}/create', [TaskController::class, 'create'])->name('tas
 Route::post('/{scrumboard}/tasks', [TaskController::class, 'store'])->name('tasks.store');
 
 Route::get('/{scrumboard}/{task}', [TaskController::class, 'show'])->name('tasks.show');
+Route::put('/{scrumboard}/{task}', [TaskController::class, 'update'])->name('tasks.update');
 Route::delete('/{scrumboard}/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');

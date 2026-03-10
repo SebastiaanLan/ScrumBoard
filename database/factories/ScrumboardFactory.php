@@ -22,7 +22,7 @@ class ScrumboardFactory extends Factory
         return [
             'name' => $name,
             'slug' => Str::slug($name),
-            'description' => fake()->paragraph(10),
+            'description' => fake()->paragraph(5),
         ];
     }
 }

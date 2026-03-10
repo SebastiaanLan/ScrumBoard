@@ -16,7 +16,7 @@ class ScrumboardController extends Controller
     }
 
     public function show(Scrumboard $scrumboard) {
-        $tasks = Task::where('scrumboard_id', $scrumboard->id)->get();
+        $tasks = Task::where('scrumboard_id', $scrumboard->id)->OrderBy('updated_at', 'asc')->get();
         
         return view('scrumboards.show', ['scrumboard' => $scrumboard, 'tasks' => $tasks]);
     }

@@ -19,7 +19,7 @@ class TaskController extends Controller
     public function store(Request $request, Scrumboard $scrumboard) {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'priority' => 'required|integer|min:1|max:5',
+            'priority' => 'required|integer|min:1|max:3',
             'description' => 'required|string|min:1|max:1000',
         ]);
 
@@ -32,5 +32,15 @@ class TaskController extends Controller
         $task->delete();
 
         return redirect()->route('scrumboards.show', $scrumboard->slug);
+    }
+    
+    public function update(Request $request, Scrumboard $scrumboard, Task $task) {
+        $validated = $request->validate([
+            'status' => 'required|in:backlog,todo,doing,done',
+        ]);
+
+        $task->update($validated);
+
+        return back();
     }
 }

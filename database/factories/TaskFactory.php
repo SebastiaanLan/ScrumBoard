@@ -19,7 +19,7 @@ class TaskFactory extends Factory
     {
         return [
             'title' => fake()->realText(20),
-            'priority' => fake()->numberBetween(0, 5),
+            'priority' => fake()->numberBetween(1, 3),
             'description' => fake()->realText(500),
             'status' => fake()->randomElement(['backlog', 'todo', 'doing', 'done']),
             'scrumboard_id' => Scrumboard::inRandomOrder()->first()->id,
