@@ -16,7 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->integer('priority');
-            $table->text("description");
+            $table->text('description');
+            $table->enum('status', ['backlog', 'todo', 'doing', 'done']);
             $table->foreignId('scrumboard_id')->constrained()->onDelete('cascade');
         });
     }

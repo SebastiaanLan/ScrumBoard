@@ -6,15 +6,8 @@
         <p><strong>Description:</strong></p>
         <p>{{ $task->description }}</p>
     </div>
-
-    <div class="bg-white p-4 my-4 rounded">
-        <h3>Scrumboard info</h3>
-        <p><strong>Scrumboard name:</strong> {{ $task->scrumboard->name }}</p>
-        <p><strong>Description:</strong></p>
-        <p>{{ $task->scrumboard->description }}</p>
-    </div>
-
-    <form action="{{ route('tasks.destroy', $task) }}" method="POST">
+    
+    <form action="{{ route('tasks.destroy', [$scrumboard->slug, $task->id]) }}" method="POST">
         @csrf
         @method('DELETE')
 
