@@ -1,8 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ScrumboardController;
+use App\Http\Controllers\AuthController;
+
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register.show');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login.show');
+
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [ScrumboardController::class, 'index'])->name('scrumboards.index');
 Route::get('/scrumboards/create', [ScrumboardController::class, 'create'])->name('scrumboards.create');
